@@ -33,6 +33,7 @@ for device in devices:
      #   hostname = hostname[2]
         name = time.ctime().split()[4]+time.ctime().split()[1]+time.ctime().split()[2]+"-"+hostname
      #   print("%s" %name)
-        print(connection.send_command("copy running-config scp://releaseuser:releaseuser@10.31.2.101//home/releaseuser/defects/minhoang/X/%s" %name))
+        connection.send_command("copy running-config scp://releaseuser:releaseuser@10.31.2.101//home/releaseuser/defects/minhoang/X/%s" %name)
+        print("done copying running %s config to tftp" %hostname)
     except netmiko.ssh_exception.NetMikoAuthenticationException:
         print('Authentication failed to ', device)
